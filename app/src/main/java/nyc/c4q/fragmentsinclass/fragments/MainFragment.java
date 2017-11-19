@@ -66,7 +66,46 @@ public class MainFragment extends Fragment {
             }
         });
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment2 fragment2 = new Fragment2();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                String textFromMainFragment = editText.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString(MAIN_FRAGMENT_KEY, textFromMainFragment);
+                fragment2.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.main_container, fragment2).addToBackStack(MAIN_FRAGMENT_KEY);
+                fragmentTransaction.commit();
+
+
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment3 fragment3 = new Fragment3();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                String textFromMainFragment = editText.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString(MAIN_FRAGMENT_KEY, textFromMainFragment);
+                fragment3.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.main_container, fragment3).addToBackStack(MAIN_FRAGMENT_KEY);
+                fragmentTransaction.commit();
+
+
+            }
+        });
+
         return rootView;
     }
-
 }
