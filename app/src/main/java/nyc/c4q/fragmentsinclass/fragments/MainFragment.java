@@ -123,6 +123,22 @@ public class MainFragment extends Fragment {
             }
         });
 
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment5 fragment5 = new Fragment5();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                String textFromMainFragment = editText.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString(MAIN_FRAGMENT_KEY, textFromMainFragment);
+                fragment5.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.main_container, fragment5).addToBackStack(MAIN_FRAGMENT_KEY);
+                fragmentTransaction.commit();
+            }
+        });
         return rootView;
     }
 }
